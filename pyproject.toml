@@ -1,0 +1,43 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "promisedrift"
+version = "0.1.0"
+description = "Supplier OTIF scored against the first confirmed date, with an exact bridge to the latest-promise number, as a DuckDB reference plus a statically validated Power BI project."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "promisedrift contributors" }]
+dependencies = [
+    "duckdb>=1.1",
+    "numpy>=1.26",
+    "typer>=0.12",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.6",
+    "pyyaml>=6",
+]
+
+[project.scripts]
+promisedrift = "promisedrift.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/promisedrift"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["error"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]

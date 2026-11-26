@@ -1,0 +1,148 @@
+{
+  "config": "{\"version\":\"5.53\",\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true}",
+  "layoutOptimization": 0,
+  "resourcePackages": [],
+  "sections": [
+    {
+      "config": "{}",
+      "displayName": "Scorecard",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectionScorecard",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"card_headline\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":20,\"z\":0,\"width\":300,\"height\":110}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fct_po_line_status.OTIF Headline %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_po_line_status\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"OTIF Headline %\"},\"Name\":\"fct_po_line_status.OTIF Headline %\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 110,
+          "width": 300,
+          "x": 20,
+          "y": 20,
+          "z": 0
+        },
+        {
+          "config": "{\"name\":\"card_latest\",\"layouts\":[{\"id\":0,\"position\":{\"x\":340,\"y\":20,\"z\":1,\"width\":300,\"height\":110}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fct_po_line_status.OTIF Latest Promise %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_po_line_status\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"OTIF Latest Promise %\"},\"Name\":\"fct_po_line_status.OTIF Latest Promise %\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 110,
+          "width": 300,
+          "x": 340,
+          "y": 20,
+          "z": 1
+        },
+        {
+          "config": "{\"name\":\"card_first\",\"layouts\":[{\"id\":0,\"position\":{\"x\":660,\"y\":20,\"z\":2,\"width\":300,\"height\":110}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fct_po_line_status.OTIF First Confirmed %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_po_line_status\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"OTIF First Confirmed %\"},\"Name\":\"fct_po_line_status.OTIF First Confirmed %\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 110,
+          "width": 300,
+          "x": 660,
+          "y": 20,
+          "z": 2
+        },
+        {
+          "config": "{\"name\":\"card_requested\",\"layouts\":[{\"id\":0,\"position\":{\"x\":980,\"y\":20,\"z\":3,\"width\":280,\"height\":110}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fct_po_line_status.OTIF Requested %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_po_line_status\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"OTIF Requested %\"},\"Name\":\"fct_po_line_status.OTIF Requested %\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 110,
+          "width": 280,
+          "x": 980,
+          "y": 20,
+          "z": 3
+        },
+        {
+          "config": "{\"name\":\"slicer_commodity\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":150,\"z\":4,\"width\":260,\"height\":540}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_supplier.commodity\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"dim_supplier\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"commodity\"},\"Name\":\"dim_supplier.commodity\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 540,
+          "width": 260,
+          "x": 20,
+          "y": 150,
+          "z": 4
+        },
+        {
+          "config": "{\"name\":\"table_suppliers\",\"layouts\":[{\"id\":0,\"position\":{\"x\":300,\"y\":150,\"z\":5,\"width\":960,\"height\":540}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_supplier.supplier_id\"},{\"queryRef\":\"dim_supplier.supplier_name\"},{\"queryRef\":\"fct_po_line_status.OTIF Headline %\"},{\"queryRef\":\"fct_po_line_status.OTIF First Confirmed %\"},{\"queryRef\":\"fct_po_line_status.Promise Drift Days\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"dim_supplier\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"fct_po_line_status\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"supplier_id\"},\"Name\":\"dim_supplier.supplier_id\"},{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"supplier_name\"},\"Name\":\"dim_supplier.supplier_name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"OTIF Headline %\"},\"Name\":\"fct_po_line_status.OTIF Headline %\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"OTIF First Confirmed %\"},\"Name\":\"fct_po_line_status.OTIF First Confirmed %\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Promise Drift Days\"},\"Name\":\"fct_po_line_status.Promise Drift Days\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 540,
+          "width": 960,
+          "x": 300,
+          "y": 150,
+          "z": 5
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "OTIF Bridge",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectionBridge",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"card_bridge_headline\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":20,\"z\":0,\"width\":400,\"height\":110}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fct_po_line_status.OTIF Headline %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_po_line_status\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"OTIF Headline %\"},\"Name\":\"fct_po_line_status.OTIF Headline %\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 110,
+          "width": 400,
+          "x": 20,
+          "y": 20,
+          "z": 0
+        },
+        {
+          "config": "{\"name\":\"card_bridge_first\",\"layouts\":[{\"id\":0,\"position\":{\"x\":440,\"y\":20,\"z\":1,\"width\":400,\"height\":110}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"fct_po_line_status.OTIF First Confirmed %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"fct_po_line_status\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"OTIF First Confirmed %\"},\"Name\":\"fct_po_line_status.OTIF First Confirmed %\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 110,
+          "width": 400,
+          "x": 440,
+          "y": 20,
+          "z": 1
+        },
+        {
+          "config": "{\"name\":\"bars_bridge\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":150,\"z\":2,\"width\":1240,\"height\":540}}],\"singleVisual\":{\"visualType\":\"clusteredBarChart\",\"projections\":{\"Category\":[{\"queryRef\":\"dim_supplier.supplier_name\"}],\"Y\":[{\"queryRef\":\"fct_po_line_status.Bridge Early pp\"},{\"queryRef\":\"fct_po_line_status.Bridge Re-promise pp\"},{\"queryRef\":\"fct_po_line_status.Bridge Partial pp\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"dim_supplier\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"fct_po_line_status\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"supplier_name\"},\"Name\":\"dim_supplier.supplier_name\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Bridge Early pp\"},\"Name\":\"fct_po_line_status.Bridge Early pp\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Bridge Re-promise pp\"},\"Name\":\"fct_po_line_status.Bridge Re-promise pp\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Bridge Partial pp\"},\"Name\":\"fct_po_line_status.Bridge Partial pp\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 540,
+          "width": 1240,
+          "x": 20,
+          "y": 150,
+          "z": 2
+        }
+      ],
+      "width": 1280
+    },
+    {
+      "config": "{}",
+      "displayName": "Supplier Drill",
+      "displayOption": 1,
+      "filters": "[]",
+      "height": 720,
+      "name": "ReportSectionDrill",
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"slicer_supplier\",\"layouts\":[{\"id\":0,\"position\":{\"x\":20,\"y\":20,\"z\":0,\"width\":300,\"height\":670}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_supplier.supplier_name\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"s\",\"Entity\":\"dim_supplier\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"s\"}},\"Property\":\"supplier_name\"},\"Name\":\"dim_supplier.supplier_name\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 670,
+          "width": 300,
+          "x": 20,
+          "y": 20,
+          "z": 0
+        },
+        {
+          "config": "{\"name\":\"line_lead_time\",\"layouts\":[{\"id\":0,\"position\":{\"x\":340,\"y\":20,\"z\":1,\"width\":920,\"height\":330}}],\"singleVisual\":{\"visualType\":\"lineChart\",\"projections\":{\"Category\":[{\"queryRef\":\"fct_lead_time.quarter_label\"}],\"Y\":[{\"queryRef\":\"fct_lead_time.Lead Time P90 Days\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"l\",\"Entity\":\"fct_lead_time\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"quarter_label\"},\"Name\":\"fct_lead_time.quarter_label\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"l\"}},\"Property\":\"Lead Time P90 Days\"},\"Name\":\"fct_lead_time.Lead Time P90 Days\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 330,
+          "width": 920,
+          "x": 340,
+          "y": 20,
+          "z": 1
+        },
+        {
+          "config": "{\"name\":\"table_drift\",\"layouts\":[{\"id\":0,\"position\":{\"x\":340,\"y\":370,\"z\":2,\"width\":920,\"height\":320}}],\"singleVisual\":{\"visualType\":\"tableEx\",\"projections\":{\"Values\":[{\"queryRef\":\"dim_date.quarter_label\"},{\"queryRef\":\"fct_po_line_status.Promise Drift Days\"},{\"queryRef\":\"fct_po_line_status.OTIF Headline %\"},{\"queryRef\":\"fct_po_line_status.OTIF First Confirmed %\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"d\",\"Entity\":\"dim_date\",\"Type\":0},{\"Name\":\"f\",\"Entity\":\"fct_po_line_status\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"d\"}},\"Property\":\"quarter_label\"},\"Name\":\"dim_date.quarter_label\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Promise Drift Days\"},\"Name\":\"fct_po_line_status.Promise Drift Days\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"OTIF Headline %\"},\"Name\":\"fct_po_line_status.OTIF Headline %\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"OTIF First Confirmed %\"},\"Name\":\"fct_po_line_status.OTIF First Confirmed %\"}]},\"drillFilterOtherVisuals\":true}}",
+          "filters": "[]",
+          "height": 320,
+          "width": 920,
+          "x": 340,
+          "y": 370,
+          "z": 2
+        }
+      ],
+      "width": 1280
+    }
+  ]
+}

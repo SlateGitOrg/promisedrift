@@ -1,0 +1,15 @@
+relationship e1c1d509-2d60-5f45-baa2-0e1cf3821417
+	fromColumn: fct_po_line_status.supplier_id
+	toColumn: dim_supplier.supplier_id
+
+relationship b782a8b6-7d2c-5742-a908-80581b8fbee5
+	fromColumn: fct_po_line_status.first_confirmed_dt
+	toColumn: dim_date.date
+
+relationship 5f06bcaf-2bfd-5eba-9df0-7c0bf04a9cf8
+	fromColumn: fct_lead_time.supplier_id
+	toColumn: dim_supplier.supplier_id
+
+relationship 014b7a21-57ae-538c-9b28-d00c9ba8b4ec
+	fromColumn: fct_lead_time.quarter_start
+	toColumn: dim_date.date

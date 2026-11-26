@@ -1,0 +1,36 @@
+supplier_id,supplier_name,commodity
+SUP-01,Altair Polymers,resin
+SUP-02,Brennick Polymers,resin
+SUP-03,Calloway Polymers,resin
+SUP-04,Dunmore Polymers,resin
+SUP-05,Elmcrest Polymers,resin
+SUP-06,Farrow Polymers,resin
+SUP-07,Garnet Fasteners,fasteners
+SUP-08,Halden Fasteners,fasteners
+SUP-09,Ironvale Fasteners,fasteners
+SUP-10,Juniper Fasteners,fasteners
+SUP-11,Kestrel Fasteners,fasteners
+SUP-12,Larchmont Fasteners,fasteners
+SUP-13,Marlowe Fasteners,fasteners
+SUP-14,Northgate Textiles,fabric
+SUP-15,Oakhurst Textiles,fabric
+SUP-16,Pennant Textiles,fabric
+SUP-17,Quillon Textiles,fabric
+SUP-18,Ridgeway Textiles,fabric
+SUP-19,Stanmore Textiles,fabric
+SUP-20,Tolliver Foam Products,foam
+SUP-21,Underhill Foam Products,foam
+SUP-22,Vantage Foam Products,foam
+SUP-23,Westerly Foam Products,foam
+SUP-24,Yarrow Foam Products,foam
+SUP-25,Zephyr Metal Stampings,stampings
+SUP-26,Ashgrove Metal Stampings,stampings
+SUP-27,Bramley Metal Stampings,stampings
+SUP-28,Cobalt Metal Stampings,stampings
+SUP-29,Denholm Metal Stampings,stampings
+SUP-30,Eastvale Metal Stampings,stampings
+SUP-31,Fairmont Electronics,electronics
+SUP-32,Glenrock Electronics,electronics
+SUP-33,Hartwell Electronics,electronics
+SUP-34,Kingsley Electronics,electronics
+SUP-35,Lyndhurst Electronics,electronics

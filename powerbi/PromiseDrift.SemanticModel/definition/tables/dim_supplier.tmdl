@@ -1,0 +1,32 @@
+table dim_supplier
+	lineageTag: 14a9d134-3053-53f7-aa2d-1c3e59786157
+
+	column supplier_id
+		dataType: string
+		lineageTag: 34e716d7-2792-5d8b-a593-6bb693bd793d
+		summarizeBy: none
+		sourceColumn: supplier_id
+
+	column supplier_name
+		dataType: string
+		lineageTag: 9f1b277a-a899-5ed6-8b5a-b272c0dad3fd
+		summarizeBy: none
+		sourceColumn: supplier_name
+
+	column commodity
+		dataType: string
+		lineageTag: 474bc43c-98ef-5283-808e-7b051a58c54f
+		summarizeBy: none
+		sourceColumn: commodity
+
+	partition dim_supplier = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "dim_supplier.csv"), [Delimiter=",", Columns=3, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalarValues=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"supplier_id", type text}, {"supplier_name", type text}, {"commodity", type text}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

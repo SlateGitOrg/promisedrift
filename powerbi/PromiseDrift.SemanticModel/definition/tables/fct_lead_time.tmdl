@@ -1,0 +1,63 @@
+table fct_lead_time
+	lineageTag: 4ebd66e2-09d8-5f23-9e8f-dd5ba11882e9
+
+	column supplier_id
+		dataType: string
+		lineageTag: cc5a6aa1-ad3e-5400-8a3c-74a75b7b1fd8
+		summarizeBy: none
+		sourceColumn: supplier_id
+
+	column quarter_label
+		dataType: string
+		lineageTag: 38007263-1e0d-5244-8135-ad0721d043d5
+		summarizeBy: none
+		sourceColumn: quarter_label
+
+	column quarter_start
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: a849bd26-c86d-5086-9979-52ce45800dc6
+		summarizeBy: none
+		sourceColumn: quarter_start
+
+	column lines
+		dataType: int64
+		lineageTag: 0be05b47-2bc8-511d-a196-37bb2531ec8c
+		summarizeBy: sum
+		sourceColumn: lines
+
+	column quoted_lead_days
+		dataType: int64
+		lineageTag: 2894eaf7-7263-5964-b54e-0d54b23707e8
+		summarizeBy: sum
+		sourceColumn: quoted_lead_days
+
+	column actual_p50_days
+		dataType: double
+		lineageTag: 3bb83c72-a513-5b24-8eb1-c7b80534beb2
+		summarizeBy: sum
+		sourceColumn: actual_p50_days
+
+	column actual_p90_days
+		dataType: double
+		lineageTag: 59385ac2-dd0b-5eec-a432-2b517cc1875e
+		summarizeBy: sum
+		sourceColumn: actual_p90_days
+
+	measure 'Lead Time P90 Days' = ```
+			MAX ( fct_lead_time[actual_p90_days] )
+			```
+		formatString: 0.0
+		lineageTag: d7a8206d-d6e3-51ec-92ca-87527c3f3b33
+
+	partition fct_lead_time = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "fct_lead_time.csv"), [Delimiter=",", Columns=7, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalarValues=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"supplier_id", type text}, {"quarter_label", type text}, {"quarter_start", type date}, {"lines", Int64.Type}, {"quoted_lead_days", Int64.Type}, {"actual_p50_days", type number}, {"actual_p90_days", type number}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table

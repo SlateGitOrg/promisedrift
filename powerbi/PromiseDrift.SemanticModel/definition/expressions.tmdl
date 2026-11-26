@@ -1,0 +1,4 @@
+expression DataFolder = "C:\promisedrift\powerbi\data\" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 083784b7-2acf-5ba8-8511-05df254ed8bb
+
+	annotation PBI_ResultType = Text

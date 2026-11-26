@@ -1,0 +1,205 @@
+table fct_po_line_status
+	lineageTag: 8dbdfa63-31ca-5b8b-ade5-29d58645e088
+
+	column po_line_id
+		dataType: string
+		lineageTag: 644b2071-acd1-51ca-b94c-a50b4ac005a1
+		summarizeBy: none
+		sourceColumn: po_line_id
+
+	column supplier_id
+		dataType: string
+		lineageTag: c2e830cf-231c-56c5-b93b-88a4a5d74e38
+		summarizeBy: none
+		sourceColumn: supplier_id
+
+	column order_dt
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2063f8c7-6d6b-5c69-b16f-cf1d9e6f6529
+		summarizeBy: none
+		sourceColumn: order_dt
+
+	column requested_dt
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: da1b6208-2642-5cd6-8549-e3e0c3916ff1
+		summarizeBy: none
+		sourceColumn: requested_dt
+
+	column first_confirmed_dt
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 53a6bbf4-b7c4-597c-b889-26a7f4e24fda
+		summarizeBy: none
+		sourceColumn: first_confirmed_dt
+
+	column latest_promise_dt
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5ebe0361-f083-58af-a453-8c2fcf06be78
+		summarizeBy: none
+		sourceColumn: latest_promise_dt
+
+	column first_receipt_dt
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: c887efbb-ea42-5028-b519-bd731d356c8b
+		summarizeBy: none
+		sourceColumn: first_receipt_dt
+
+	column ordered_qty
+		dataType: int64
+		lineageTag: 55ddae7d-f0e1-54ea-87b6-1854e2ddda72
+		summarizeBy: sum
+		sourceColumn: ordered_qty
+
+	column qty_eventual
+		dataType: int64
+		lineageTag: 0a37f298-f6b7-5c0c-a3f4-ece49d8de6b4
+		summarizeBy: sum
+		sourceColumn: qty_eventual
+
+	column qty_by_requested
+		dataType: int64
+		lineageTag: 0c7c9e78-3004-58f8-a75f-11e24cc9103e
+		summarizeBy: sum
+		sourceColumn: qty_by_requested
+
+	column qty_by_first_confirmed
+		dataType: int64
+		lineageTag: 4e5827e0-6532-5507-869c-e62548e76bb0
+		summarizeBy: sum
+		sourceColumn: qty_by_first_confirmed
+
+	column qty_by_latest_promise
+		dataType: int64
+		lineageTag: f7d84097-3085-5bd0-afa5-2c519d3daf14
+		summarizeBy: sum
+		sourceColumn: qty_by_latest_promise
+
+	column repromise_count
+		dataType: int64
+		lineageTag: b6cf840b-1020-58ac-823f-97639a6c3dbe
+		summarizeBy: sum
+		sourceColumn: repromise_count
+
+	column drift_days
+		dataType: int64
+		lineageTag: 65bf710b-3498-55fa-91f8-6c3655107e72
+		summarizeBy: sum
+		sourceColumn: drift_days
+
+	column d1_otif
+		dataType: int64
+		lineageTag: 74a2a413-d05a-5240-a14a-ba7c64d01b8d
+		summarizeBy: sum
+		sourceColumn: d1_otif
+
+	column d2_otif
+		dataType: int64
+		lineageTag: 754e37cf-c069-57a8-8af6-a7c281419dc3
+		summarizeBy: sum
+		sourceColumn: d2_otif
+
+	column d3_otif
+		dataType: int64
+		lineageTag: 0ab1a248-be4d-5185-bbf3-e92cecac5615
+		summarizeBy: sum
+		sourceColumn: d3_otif
+
+	column d4_otif
+		dataType: int64
+		lineageTag: 2b4b6a0f-e23f-5d41-ac96-39a9ef15fbe9
+		summarizeBy: sum
+		sourceColumn: d4_otif
+
+	column bridge_cause
+		dataType: string
+		lineageTag: 1fa818c1-e5e4-5a65-9532-ff6db3a2b11d
+		summarizeBy: none
+		sourceColumn: bridge_cause
+
+	column bridge_early
+		dataType: int64
+		lineageTag: 98ecbf7a-efd6-5f8c-9f8b-509433e7fa1d
+		summarizeBy: sum
+		sourceColumn: bridge_early
+
+	column bridge_repromise
+		dataType: int64
+		lineageTag: 82eacf06-e4fb-5a23-8a16-44d9ce0517b0
+		summarizeBy: sum
+		sourceColumn: bridge_repromise
+
+	column bridge_partial
+		dataType: int64
+		lineageTag: 65a167f9-0d25-5fc2-8fed-e824004882e9
+		summarizeBy: sum
+		sourceColumn: bridge_partial
+
+	column bridge_other
+		dataType: int64
+		lineageTag: 33af4279-f671-5d80-b04a-d174199fd16e
+		summarizeBy: sum
+		sourceColumn: bridge_other
+
+	measure 'OTIF Headline %' = ```
+			DIVIDE ( SUM ( fct_po_line_status[d1_otif] ), COUNTROWS ( fct_po_line_status ) )
+			```
+		formatString: 0.0%
+		lineageTag: 103551c1-f9c7-5d7a-a542-403c02e2fd72
+
+	measure 'OTIF Latest Promise %' = ```
+			DIVIDE ( SUM ( fct_po_line_status[d2_otif] ), COUNTROWS ( fct_po_line_status ) )
+			```
+		formatString: 0.0%
+		lineageTag: 6b2d954f-ed39-5ba8-9e35-9bfd16ee2685
+
+	measure 'OTIF First Confirmed %' = ```
+			DIVIDE ( SUM ( fct_po_line_status[d3_otif] ), COUNTROWS ( fct_po_line_status ) )
+			```
+		formatString: 0.0%
+		lineageTag: b933cc6b-515a-5822-8e80-87c97afdba21
+
+	measure 'OTIF Requested %' = ```
+			DIVIDE ( SUM ( fct_po_line_status[d4_otif] ), COUNTROWS ( fct_po_line_status ) )
+			```
+		formatString: 0.0%
+		lineageTag: d6d4e6c8-7715-5bba-ba98-a6ff4c5fb193
+
+	measure 'Bridge Early pp' = ```
+			100 * DIVIDE ( SUM ( fct_po_line_status[bridge_early] ), COUNTROWS ( fct_po_line_status ) )
+			```
+		formatString: 0.0
+		lineageTag: 677d2ae1-58df-5864-a53d-0b91afa4975d
+
+	measure 'Bridge Re-promise pp' = ```
+			100 * DIVIDE ( SUM ( fct_po_line_status[bridge_repromise] ), COUNTROWS ( fct_po_line_status ) )
+			```
+		formatString: 0.0
+		lineageTag: 3385e7de-43e0-57c6-b903-15f98ee66431
+
+	measure 'Bridge Partial pp' = ```
+			100 * DIVIDE ( SUM ( fct_po_line_status[bridge_partial] ), COUNTROWS ( fct_po_line_status ) )
+			```
+		formatString: 0.0
+		lineageTag: a7c5c49d-ee9f-52a4-b045-feb3036194ad
+
+	measure 'Promise Drift Days' = ```
+			AVERAGE ( fct_po_line_status[drift_days] )
+			```
+		formatString: 0.0
+		lineageTag: 23bfa662-8f9f-5015-9088-73e1ff69263a
+
+	partition fct_po_line_status = m
+		mode: import
+		source =
+				let
+				    Source = Csv.Document(File.Contents(DataFolder & "fct_po_line_status.csv"), [Delimiter=",", Columns=23, Encoding=65001, QuoteStyle=QuoteStyle.Csv]),
+				    Promoted = Table.PromoteHeaders(Source, [PromoteAllScalarValues=true]),
+				    Typed = Table.TransformColumnTypes(Promoted, {{"po_line_id", type text}, {"supplier_id", type text}, {"order_dt", type date}, {"requested_dt", type date}, {"first_confirmed_dt", type date}, {"latest_promise_dt", type date}, {"first_receipt_dt", type date}, {"ordered_qty", Int64.Type}, {"qty_eventual", Int64.Type}, {"qty_by_requested", Int64.Type}, {"qty_by_first_confirmed", Int64.Type}, {"qty_by_latest_promise", Int64.Type}, {"repromise_count", Int64.Type}, {"drift_days", Int64.Type}, {"d1_otif", Int64.Type}, {"d2_otif", Int64.Type}, {"d3_otif", Int64.Type}, {"d4_otif", Int64.Type}, {"bridge_cause", type text}, {"bridge_early", Int64.Type}, {"bridge_repromise", Int64.Type}, {"bridge_partial", Int64.Type}, {"bridge_other", Int64.Type}}, "en-US")
+				in
+				    Typed
+
+	annotation PBI_ResultType = Table
